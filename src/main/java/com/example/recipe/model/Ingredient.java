@@ -13,8 +13,19 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
+    @OneToOne
+    private UnitofMeasure unitOfMeasure;
+
     @ManyToOne
     private Recipe recipe;
+
+    public UnitofMeasure getUnitOfMeasure() {
+        return unitOfMeasure;
+    }
+
+    public void setUnitOfMeasure(UnitofMeasure unitofMeasure) {
+        this.unitOfMeasure = unitofMeasure;
+    }
 
     public Long getId() {
         return id;
