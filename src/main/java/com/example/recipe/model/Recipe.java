@@ -18,15 +18,28 @@ public class Recipe {
     private String url;
     private String directions;
 
+
     //JPA mappings related
     @Lob
     private Byte[] image;
+
+    //don't want ORDINAL (default) which would return number; String returned is always HARD if other enums are added later
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     //directs Notes objects to be deleted if a Recipe is deleted
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
-    //one recipe mapped to many possible ingredient sets (boiled eggs, fried eggs etc.)
+    //an intermediate table is prepared by JPA to handle many-to-many relationships. Since we want Recipe-Category to be
+    //bidirectional with one unified JOIN table we add @JoinTable called recipe_category, instead of two separate JOIN tables
+    //see /h2-console with the current jdbc URL listed in Spring Boot to see this in action
+    @JoinTable(name = "recipe_category",
+        joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @ManyToMany
+    private Set<Category> categories;
+
+    //one recipe mapped to many possible ingredient sets (boiled eggs, fried eggs etc.); recipe is in Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 
@@ -108,5 +121,29 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
