@@ -3,14 +3,14 @@ package com.example.recipe.model;
 import javax.persistence.*;
 
 @Entity
-public class UnitofMeasure {
+public class UnitOfMeasure {
     //unidirectional relationship from Ingredient so not @OneToOne annotation here
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String unitOfMeasure;
+    private String description;
 
     public Long getId() {
         return id;
@@ -20,11 +20,11 @@ public class UnitofMeasure {
         this.id = id;
     }
 
-    public String getUnitOfMeasure() {
-        return unitOfMeasure;
+    public String getDescription() {
+        return description;
     }
 
-    public void setUnitOfMeasure(String unitOfMeasure) {
-        this.unitOfMeasure = unitOfMeasure;
+    public void setDescription(String unitOfMeasure) {
+        this.description = unitOfMeasure;
     }
 }
