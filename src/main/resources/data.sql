@@ -1,3 +1,5 @@
+-- the tables category and unit_of_measure are not defined anywhere-else in the project
+-- the columns description relate to the String description local variables in Category and UnitOfMeasure
 INSERT INTO category (description) VALUES ('American');
 INSERT INTO category (description) VALUES ('Italian');
 INSERT INTO category (description) VALUES ('Mexican');
