@@ -14,12 +14,16 @@ public class Recipe {
     private String prepTime;
     private String cookTime;
     private String servings;
+
+    //not sure what source is used for yet...
     private String source;
     private String url;
+
+    //recipe directions
+    @Lob
     private String directions;
 
-
-    //JPA mappings related
+    //image is JPA mappings related
     @Lob
     private Byte[] image;
 
@@ -27,7 +31,7 @@ public class Recipe {
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
 
-    //directs Notes objects to be deleted if a Recipe is deleted
+    //directs Notes objects to be deleted if a Recipe is deleted (intro notes, not directions)
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
