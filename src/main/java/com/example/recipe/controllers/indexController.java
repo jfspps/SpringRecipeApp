@@ -4,7 +4,9 @@ import com.example.recipe.model.Category;
 import com.example.recipe.model.UnitOfMeasure;
 import com.example.recipe.repositories.CategoryRepository;
 import com.example.recipe.repositories.UnitOfMeasureRepository;
+import com.example.recipe.services.RecipeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
@@ -12,24 +14,16 @@ import java.util.Optional;
 @Controller
 public class indexController {
 
-    private CategoryRepository categoryRepository;
-    private UnitOfMeasureRepository unitOfMeasureRepository;
+    private final RecipeService recipeService;
 
-    public indexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
+    public indexController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String getIndexPage(){
+    public String getIndexPage(Model model) {
 
-        // pull the Category and UnitOfMeasure objects which have String descriptions given
-        Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
-        Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
-
-        // from data.sql, both entries should have an id of 1
-        System.out.println("Category id is: " + categoryOptional.get().getId());
-        System.out.println("UnitOfMeasure id is " + unitOfMeasureOptional.get().getId());
+        model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
     }
