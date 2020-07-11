@@ -19,6 +19,20 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
+    //load UnitOfMeasure with Ingredient (eager) as opposed to on demand (lazy)
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure uom;
+
+    public Ingredient() {
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+        this.recipe = recipe;
+    }
+
     public UnitOfMeasure getUnitOfMeasure() {
         return unitOfMeasure;
     }
