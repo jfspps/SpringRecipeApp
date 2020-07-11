@@ -125,8 +125,10 @@ public class Recipe {
         return notes;
     }
 
+    //associates Notes with this Recipe and vice versa
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
     }
 
     public Difficulty getDifficulty() {
@@ -135,6 +137,13 @@ public class Recipe {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    //associates an Ingredient with Recipe (many-to-many) before vice versa; returns said recipe
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
     }
 
     public Set<Ingredient> getIngredients() {

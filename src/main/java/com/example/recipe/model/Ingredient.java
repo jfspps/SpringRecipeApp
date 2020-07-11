@@ -26,6 +26,13 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    //more concise constructor which assumes that an Ingredient and Recipe are bound elsewhere (see addIngredient())
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
         this.description = description;
         this.amount = amount;
