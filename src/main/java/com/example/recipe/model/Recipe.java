@@ -1,6 +1,7 @@
 package com.example.recipe.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ public class Recipe {
     private String source;
     private String url;
 
-    //recipe directions
+    //recipe directions (allow for > 255 chars)
     @Lob
     private String directions;
 
@@ -44,8 +45,9 @@ public class Recipe {
     private Set<Category> categories;
 
     //one recipe mapped to many possible ingredient sets (boiled eggs, fried eggs etc.); recipe is in Ingredient
+    // avoid handling null ingredients by initialising to HashSet
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     public Long getId() {
         return id;

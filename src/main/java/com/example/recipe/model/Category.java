@@ -1,6 +1,7 @@
 package com.example.recipe.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,9 +12,9 @@ public class Category {
     private Long id;
     private String description;
 
-    //categories is in Recipe
+    //categories is in Recipe; avoid null recipes by initialising to HashSet
     @ManyToMany(mappedBy = "categories")
-    private Set<Recipe> recipes;
+    private Set<Recipe> recipes = new HashSet<>();
 
     public Long getId() {
         return id;
