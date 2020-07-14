@@ -1,7 +1,13 @@
 package com.example.recipe.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 
+//@Data is a Lombok annotation which includes all-args-constructor, getters, setters, equals() and hashcode()
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})  //see /target/classes for compiled code-exclusion
 @Entity
 public class Notes {
 
@@ -15,28 +21,4 @@ public class Notes {
     //directs JPA to allow recipeNotes to store > 255 chars (Lob is 'large object')
     @Lob
     private String recipeNotes;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public String getRecipeNotes() {
-        return recipeNotes;
-    }
-
-    public void setRecipeNotes(String recipeNotes) {
-        this.recipeNotes = recipeNotes;
-    }
 }

@@ -1,8 +1,14 @@
 package com.example.recipe.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+//@Data is a Lombok annotation which includes all-args-constructor, getters, setters, equals() and hashcode()
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})  //see /target/classes for compiled code-exclusion
 @Entity
 public class Ingredient {
 
@@ -37,46 +43,6 @@ public class Ingredient {
         this.description = description;
         this.amount = amount;
         this.uom = uom;
-        this.recipe = recipe;
-    }
-
-    public UnitOfMeasure getUnitOfMeasure() {
-        return unitOfMeasure;
-    }
-
-    public void setUnitOfMeasure(UnitOfMeasure unitofMeasure) {
-        this.unitOfMeasure = unitofMeasure;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
 }

@@ -1,16 +1,13 @@
 package com.example.recipe.controllers;
 
-import com.example.recipe.model.Category;
-import com.example.recipe.model.UnitOfMeasure;
-import com.example.recipe.repositories.CategoryRepository;
-import com.example.recipe.repositories.UnitOfMeasureRepository;
 import com.example.recipe.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
-
+//slf4j is a debug logger, through log() amongst other features
+@Slf4j
 @Controller
 public class indexController {
 
@@ -22,7 +19,7 @@ public class indexController {
 
     @RequestMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
-
+        log.debug("Now in indexController.getIndexPage");
         model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";

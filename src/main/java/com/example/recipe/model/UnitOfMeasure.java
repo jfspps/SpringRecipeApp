@@ -1,7 +1,11 @@
 package com.example.recipe.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+//@Data is a Lombok annotation which includes all-args-constructor, getters, setters, equals() and hashcode()
+@Data
 @Entity
 public class UnitOfMeasure {
     //unidirectional relationship from Ingredient so not @OneToOne annotation here
@@ -12,19 +16,4 @@ public class UnitOfMeasure {
 
     private String description;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String unitOfMeasure) {
-        this.description = unitOfMeasure;
-    }
 }
