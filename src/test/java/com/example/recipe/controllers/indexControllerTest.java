@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
 import java.util.HashSet;
@@ -16,6 +19,8 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 public class indexControllerTest {
 
@@ -95,5 +100,15 @@ public class indexControllerTest {
         //pull argument data across to a set and check if two
         Set<Recipe> setInController = argumentCaptor.getValue();
         assertEquals(2, setInController.size());
+    }
+
+    @Test
+    public void testMockMVC() throws Exception {
+        // enables routing to be verified without loading the entire project by manually checking multiple GET requests
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/")).
+                andExpect(status().isOk()).
+                andExpect(view().name("index"));
     }
 }
