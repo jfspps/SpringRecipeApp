@@ -8,7 +8,7 @@ import java.util.Set;
 
 //@Data is a Lombok annotation which includes all-args-constructor, getters, setters, equals() and hashcode()
 @Data
-@EqualsAndHashCode(exclude = {"recipes"})   //see /target/classes for compiled code-exclusion
+@EqualsAndHashCode(exclude = {"recipes"})   // /target/classes for compiled code-exclusion (exc. circular dependencies)
 @Entity
 public class Category {
 

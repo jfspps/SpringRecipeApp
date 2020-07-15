@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 //@Data is a Lombok annotation which includes all-args-constructor, getters, setters, equals() and hashcode()
 @Data
-@EqualsAndHashCode(exclude = {"recipe"})  //see /target/classes for compiled code-exclusion
+@EqualsAndHashCode(exclude = {"recipe"})  // /target/classes for compiled code-exclusion (exc. circular dependencies)
 @Entity
 public class Ingredient {
 
