@@ -1,0 +1,15 @@
+com/example/recipe/controllers/indexController.class
+com/example/recipe/services/BaseService.class
+com/example/recipe/model/Category.class
+com/example/recipe/model/Recipe.class
+com/example/recipe/RecipeApplication.class
+com/example/recipe/repositories/UnitOfMeasureRepository.class
+com/example/recipe/bootstrap/DataLoader.class
+com/example/recipe/services/RecipeService.class
+com/example/recipe/model/Notes.class
+com/example/recipe/model/Difficulty.class
+com/example/recipe/services/RecipeServiceImpl.class
+com/example/recipe/repositories/RecipeRepository.class
+com/example/recipe/model/Ingredient.class
+com/example/recipe/repositories/CategoryRepository.class
+com/example/recipe/model/UnitOfMeasure.class

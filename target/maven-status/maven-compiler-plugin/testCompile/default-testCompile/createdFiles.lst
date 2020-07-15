@@ -1,0 +1,4 @@
+com/example/recipe/controllers/indexControllerTest.class
+com/example/recipe/model/CategoryTest.class
+com/example/recipe/RecipeApplicationTests.class
+com/example/recipe/services/RecipeServiceImplTest.class

@@ -1,0 +1,15 @@
+/home/james/Dev/recipe/src/main/java/com/example/recipe/controllers/indexController.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/RecipeApplication.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/services/RecipeService.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/Recipe.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/services/RecipeServiceImpl.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/UnitOfMeasure.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/Notes.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/Difficulty.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/bootstrap/DataLoader.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/repositories/UnitOfMeasureRepository.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/Ingredient.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/repositories/CategoryRepository.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/services/BaseService.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/repositories/RecipeRepository.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/model/Category.java
