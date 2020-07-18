@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitOfMeasureIntegrationTest {
+public class UnitOfMeasureIT {
 
     // testing the injection of a single dependency into the context and validating the input;
     // the advantage with this approach is the ability to run multiple checks off the same context without reloading
@@ -25,7 +25,7 @@ public class UnitOfMeasureIntegrationTest {
     UnitOfMeasureRepository unitOfMeasureRepository;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     }
 
     @Test
