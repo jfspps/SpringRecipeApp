@@ -12,4 +12,5 @@
 /home/james/Dev/recipe/src/main/java/com/example/recipe/repositories/CategoryRepository.java
 /home/james/Dev/recipe/src/main/java/com/example/recipe/services/BaseService.java
 /home/james/Dev/recipe/src/main/java/com/example/recipe/repositories/RecipeRepository.java
+/home/james/Dev/recipe/src/main/java/com/example/recipe/controllers/recipeController.java
 /home/james/Dev/recipe/src/main/java/com/example/recipe/model/Category.java
