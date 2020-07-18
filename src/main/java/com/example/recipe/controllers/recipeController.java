@@ -15,7 +15,7 @@ public class recipeController {
         this.recipeService = recipeService;
     }
 
-    //pass the id (entered as part of the URL) and retrieve the Set<Recipe> and send it to show.html
+    //pass the id (entered as part of the URL) and retrieve a Recipe object and send it to show.html
     @RequestMapping("/recipe/show/{id}")
     public String showById(@PathVariable String id, Model model){
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
