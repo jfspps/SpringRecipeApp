@@ -73,4 +73,10 @@ public class RecipeServiceImpl implements RecipeService {
     public RecipeCommand findCommandById(Long l) {
         return recipeToRecipeCommand.convert(findById(l));
     }
+
+    //deletebyId() is part of CrudRepository (see RecipeRepository)
+    @Override
+    public void deleteById(Long idToDelete) {
+        recipeRepository.deleteById(idToDelete);
+    }
 }

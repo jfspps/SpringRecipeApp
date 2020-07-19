@@ -17,4 +17,6 @@ public interface RecipeService {
 
     //handle command objects directly (will convert to/from POJO)
     RecipeCommand findCommandById(Long l);
+
+    void deleteById(Long idToDelete);
 }
