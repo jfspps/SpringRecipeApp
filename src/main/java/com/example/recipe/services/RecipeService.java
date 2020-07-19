@@ -14,4 +14,7 @@ public interface RecipeService {
 
     //needed to handle RecipeCommand objects prior to conversion to POJO (ultimately called on POST requests)
     RecipeCommand saveRecipeCommand(RecipeCommand command);
+
+    //handle command objects directly (will convert to/from POJO)
+    RecipeCommand findCommandById(Long l);
 }
