@@ -10,7 +10,6 @@
 
 </head>
 <body>
-<!--/*@thymesVar id="recipe" type="com.example.recipe.model.Recipe"*/-->
 
 <!--<div class="container-fluid" style="margin-top: 20px">-->
 <!--    <div class="row">-->
@@ -86,6 +85,7 @@
                                 </tr>
                                 <tr th:each="recipe : ${recipes}">
                                     <!--                                present recipe ID, description and view link for each recipe-->
+                                    <!--/*@thymesVar id="recipe" type="com.example.recipe.model.Recipe"*/-->
                                     <td th:text="${recipe.id}">334</td>
                                     <td th:text="${recipe.description}">Tasty Goodness 3</td>
                                     <!--                                call recipeController's showById()-->
