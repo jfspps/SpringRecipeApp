@@ -20,7 +20,7 @@ public class Recipe {
     private Integer cookTime;
     private Integer servings;
 
-    //not sure what source is used for yet...
+    //source is the name of the company/individual
     private String source;
     private String url;
 

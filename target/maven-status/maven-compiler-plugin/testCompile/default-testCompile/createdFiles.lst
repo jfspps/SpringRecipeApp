@@ -1,5 +1,7 @@
 com/example/recipe/model/UnitOfMeasureIT.class
-com/example/recipe/controllers/indexControllerTest.class
+com/example/recipe/converters/UnitOfMeasureCommandToUnitOfMeasureTest.class
 com/example/recipe/model/CategoryTest.class
-com/example/recipe/RecipeApplicationTests.class
 com/example/recipe/services/RecipeServiceImplTest.class
+com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommandTest.class
+com/example/recipe/controllers/indexControllerTest.class
+com/example/recipe/RecipeApplicationTests.class

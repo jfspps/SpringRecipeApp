@@ -3,10 +3,7 @@ package com.example.recipe.commands;
 
 // for background details, see UnitOfMeasureCommand
 
-import com.example.recipe.model.Category;
 import com.example.recipe.model.Difficulty;
-import com.example.recipe.model.Ingredient;
-import com.example.recipe.model.Notes;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +26,9 @@ public class RecipeCommand {
     private String directions;
     private Byte[] image;
     private Difficulty difficulty;
-    private Notes notes;
-    private Set<Category> categories = new HashSet<>();
-    private Set<Ingredient> ingredients = new HashSet<>();
+
+    //need to accept the command-types, not the POJOs
+    private NotesCommand notes;
+    private Set<CategoryCommand> categories = new HashSet<>();
+    private Set<IngredientCommand> ingredients = new HashSet<>();
 }

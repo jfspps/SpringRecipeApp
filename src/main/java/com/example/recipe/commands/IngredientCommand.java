@@ -1,7 +1,6 @@
 package com.example.recipe.commands;
 
 import com.example.recipe.model.Recipe;
-import com.example.recipe.model.UnitOfMeasure;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +18,8 @@ public class IngredientCommand {
     private String description;
     private BigDecimal amount;
     private Recipe recipe;
-    private UnitOfMeasure uom;
+
+    //need to accept the command-types, not the POJOs
+    private UnitOfMeasureCommand uom;
 
 }
