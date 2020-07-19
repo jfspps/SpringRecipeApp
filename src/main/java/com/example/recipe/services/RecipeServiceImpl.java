@@ -1,11 +1,13 @@
 package com.example.recipe.services;
 
+import com.example.recipe.commands.RecipeCommand;
 import com.example.recipe.converters.RecipeCommandToRecipe;
 import com.example.recipe.converters.RecipeToRecipeCommand;
 import com.example.recipe.model.Recipe;
 import com.example.recipe.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -18,6 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     // CRUD-style enabled class to handles Recipes and Long IDs
     private final RecipeRepository recipeRepository;
+    //handle command-objects
     private final RecipeCommandToRecipe recipeCommandToRecipe;
     private final RecipeToRecipeCommand recipeToRecipeCommand;
 
@@ -48,5 +51,19 @@ public class RecipeServiceImpl implements RecipeService {
         }
 
         return recipeOptional.get();
+    }
+
+    // only expected to run from web UI
+    // converts command type to POJO and then merges the POJO data to the CRUD based repo (or creates a new repo if the
+    // db is empty), recipeRepository (see constructor); finally it returns the same data back
+    // the sequence (command-to-POJO-to-command) is handled outside of JPA as a group, a transaction
+    @Override
+    @Transactional
+    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+        Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
+
+        Recipe savedRecipe = recipeRepository.save(detachedRecipe);
+        log.debug("Saved RecipeId:" + savedRecipe.getId());
+        return recipeToRecipeCommand.convert(savedRecipe);
     }
 }
