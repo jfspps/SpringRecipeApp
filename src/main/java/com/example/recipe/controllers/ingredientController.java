@@ -1,6 +1,8 @@
 package com.example.recipe.controllers;
 
 import com.example.recipe.commands.IngredientCommand;
+import com.example.recipe.commands.RecipeCommand;
+import com.example.recipe.commands.UnitOfMeasureCommand;
 import com.example.recipe.services.IngredientService;
 import com.example.recipe.services.RecipeService;
 import com.example.recipe.services.UnitOfMeasureService;
@@ -32,6 +34,28 @@ public class ingredientController {
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(recipeId)));
 
         return "recipe/ingredient/list";
+    }
+
+    //hit the New button on list.html
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newIngredient(@PathVariable String recipeId, Model model){
+
+        //make sure we have a good id value
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+        //todo raise exception if null
+
+        //need to return back parent id for hidden form property
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+
+        //init uom
+        ingredientCommand.setUom(new UnitOfMeasureCommand());
+
+        model.addAttribute("uomList",  unitOfMeasureService.listAllUoms());
+
+        return "recipe/ingredient/ingredientform";
     }
 
     @GetMapping

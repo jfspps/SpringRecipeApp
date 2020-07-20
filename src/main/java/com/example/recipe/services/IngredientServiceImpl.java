@@ -85,8 +85,8 @@ public class IngredientServiceImpl implements IngredientService {
                     .filter(ingredient -> ingredient.getId().equals(command.getId()))
                     .findFirst();
 
+            // if an associated ingredient is found, then assign the other properties with a ingredient POJO
             if(ingredientOptional.isPresent()){
-                // the ingredient ingredient has two nested properties: Recipe (handled above) and UnitOfMeasure
                 Ingredient ingredientFound = ingredientOptional.get();
 
                 //build temporary Ingredient POJO from IngredientCommand
@@ -98,20 +98,34 @@ public class IngredientServiceImpl implements IngredientService {
                         .findById(command.getUom().getId())
                         .orElseThrow(() -> new RuntimeException("UOM NOT FOUND"))); //todo address this
             } else {
-                //this adds command's ingredient POJO without verification of UOM (might be empty)
-                recipe.addIngredient(ingredientCommandToIngredient.convert(command));
+                //...if not, build a new POJO from command in its present state and align with recipe POJO
+                Ingredient ingredient = ingredientCommandToIngredient.convert(command);
+                ingredient.setRecipe(recipe);
+                recipe.addIngredient(ingredient);
             }
 
             //save Recipe and all changes to each associated ingredient to the DB
             Recipe savedRecipe = recipeRepository.save(recipe);
 
-            //to do check for fail
-            return ingredientToIngredientCommand.convert(savedRecipe
-                    .getIngredients()
-                    .stream()
+            //new verification code from this point (for new ingredients)======================================
+
+            //get the new ingredient
+            Optional<Ingredient> savedIngredientOptional = savedRecipe.getIngredients().stream()
                     .filter(recipeIngredients -> recipeIngredients.getId().equals(command.getId()))
-                    .findFirst()
-                    .get());
+                    .findFirst();
+
+            //check by description if the above stream fails
+            if(!savedIngredientOptional.isPresent()){
+                //not totally safe... But best guess
+                savedIngredientOptional = savedRecipe.getIngredients().stream()
+                        .filter(recipeIngredients -> recipeIngredients.getDescription().equals(command.getDescription()))
+                        .filter(recipeIngredients -> recipeIngredients.getAmount().equals(command.getAmount()))
+                        .filter(recipeIngredients -> recipeIngredients.getUom().getId().equals(command.getUom().getId()))
+                        .findFirst();
+            }
+
+            //to do check for fail
+            return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
         }
 
     }
