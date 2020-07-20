@@ -54,7 +54,7 @@
                             <tr th:each="ingredient : ${recipe.ingredients}">
                                 <td th:text="${ingredient.id}">334</td>
 <!--                                &apos; is an apostrophe-->
-                                <td th:text="${ingredient.amount} + &apos; &apos; + ${ingredient.uom.getDescription()} + &apos; &apos; + ${ingredient.description} + &apos;/show&apos;">Tasty Goodness 3</td>
+                                <td th:text="${ingredient.amount} + &apos; &apos; + ${ingredient.uom.getDescription()} + &apos; &apos; + ${ingredient.description}">Tasty Goodness 3</td>
                                 <td><a href="#" th:href="@{&apos;/recipe/&apos; + ${recipe.id} + &apos;/ingredient/&apos; + ${ingredient.id} + &apos;/show&apos;}">View</a>
                                 </td>
                                 <td><a href="#" th:href="@{&apos;/recipe/&apos; + ${recipe.id} + &apos;/ingredient/&apos; + ${ingredient.id} + &apos;/update&apos;}">Update</a>
