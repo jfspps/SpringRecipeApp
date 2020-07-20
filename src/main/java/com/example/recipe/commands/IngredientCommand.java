@@ -22,4 +22,7 @@ public class IngredientCommand {
     //need to accept the command-types, not the POJOs
     private UnitOfMeasureCommand uom;
 
+    //not part of model at present, but required for web navigation
+    private Long recipeId;
+
 }

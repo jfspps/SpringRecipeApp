@@ -5,6 +5,7 @@ com/example/recipe/model/CategoryTest.class
 com/example/recipe/converters/RecipeToRecipeCommandTest.class
 com/example/recipe/services/RecipeServiceImplTest.class
 com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommandTest.class
+com/example/recipe/controllers/ingredientControllerTest.class
 com/example/recipe/controllers/indexControllerTest.class
 com/example/recipe/controllers/recipeControllerTest.class
 com/example/recipe/RecipeApplicationTests.class

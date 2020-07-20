@@ -4,6 +4,7 @@
 /home/james/Dev/recipe/src/test/java/com/example/recipe/model/UnitOfMeasureIT.java
 /home/james/Dev/recipe/src/test/java/com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommandTest.java
 /home/james/Dev/recipe/src/test/java/com/example/recipe/services/RecipeServiceImplTest.java
+/home/james/Dev/recipe/src/test/java/com/example/recipe/controllers/ingredientControllerTest.java
 /home/james/Dev/recipe/src/test/java/com/example/recipe/converters/RecipeToRecipeCommandTest.java
 /home/james/Dev/recipe/src/test/java/com/example/recipe/services/RecipeServiceIT.java
 /home/james/Dev/recipe/src/test/java/com/example/recipe/converters/UnitOfMeasureCommandToUnitOfMeasureTest.java

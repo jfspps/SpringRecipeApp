@@ -8,6 +8,7 @@ com/example/recipe/commands/RecipeCommand.class
 com/example/recipe/RecipeApplication.class
 com/example/recipe/bootstrap/DataLoader.class
 com/example/recipe/model/Notes.class
+com/example/recipe/services/IngredientServiceImpl.class
 com/example/recipe/model/Difficulty.class
 com/example/recipe/services/RecipeServiceImpl.class
 com/example/recipe/model/Ingredient.class
@@ -17,6 +18,7 @@ com/example/recipe/converters/IngredientToIngredientCommand.class
 com/example/recipe/converters/NotesToNotesCommand.class
 com/example/recipe/commands/NotesCommand.class
 com/example/recipe/controllers/indexController.class
+com/example/recipe/services/IngredientService.class
 com/example/recipe/commands/UnitOfMeasureCommand.class
 com/example/recipe/converters/CategoryCommandToCategory.class
 com/example/recipe/model/Recipe.class
@@ -25,6 +27,7 @@ com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommand.class
 com/example/recipe/controllers/recipeController.class
 com/example/recipe/repositories/UnitOfMeasureRepository.class
 com/example/recipe/commands/CategoryCommand.class
+com/example/recipe/controllers/ingredientController.class
 com/example/recipe/services/RecipeService.class
 com/example/recipe/converters/RecipeToRecipeCommand.class
 com/example/recipe/repositories/RecipeRepository.class
