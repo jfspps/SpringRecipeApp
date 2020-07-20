@@ -24,9 +24,11 @@ com/example/recipe/converters/CategoryCommandToCategory.class
 com/example/recipe/model/Recipe.class
 com/example/recipe/commands/IngredientCommand.class
 com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommand.class
+com/example/recipe/services/UnitOfMeasureService.class
 com/example/recipe/controllers/recipeController.class
 com/example/recipe/repositories/UnitOfMeasureRepository.class
 com/example/recipe/commands/CategoryCommand.class
+com/example/recipe/services/UnitOfMeasureServiceImpl.class
 com/example/recipe/controllers/ingredientController.class
 com/example/recipe/services/RecipeService.class
 com/example/recipe/converters/RecipeToRecipeCommand.class
