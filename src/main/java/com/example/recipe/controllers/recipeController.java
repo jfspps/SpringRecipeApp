@@ -20,16 +20,14 @@ public class recipeController {
     // not mandatory, @GetMapping limits methods to GET request type calls, similarly @PostMapping limits calls to POST
 
     //pass the id (entered as part of the URL) and retrieve a Recipe object and send it to show.html
-    @RequestMapping("/recipe/{id}/show")
-    @GetMapping
+    @GetMapping("/recipe/{id}/show")
     public String showById(@PathVariable String id, Model model){
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
         return "recipe/show";
     }
 
     //posted form accessed through recipe/new will create a blank RecipeCommand object
-    @RequestMapping("recipe/new")
-    @GetMapping
+    @GetMapping("recipe/new")
     public String newRecipe(Model model){
         model.addAttribute("recipe", new RecipeCommand());
 
@@ -48,15 +46,13 @@ public class recipeController {
     }
 
     //called when update (from index.html) is selected
-    @RequestMapping("recipe/{id}/update")
-    @GetMapping
+    @GetMapping("recipe/{id}/update")
     public String updateRecipe(@PathVariable String id, Model model){
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
         return  "recipe/recipeform";
     }
 
-    @GetMapping
-    @RequestMapping("recipe/{id}/delete")
+    @GetMapping("recipe/{id}/delete")
     public String deleteById(@PathVariable String id){
 
         //part of SLF4J debugging

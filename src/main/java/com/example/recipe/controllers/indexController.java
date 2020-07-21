@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 //slf4j is a debug logger, through log() amongst other features
 @Slf4j
@@ -20,8 +19,7 @@ public class indexController {
 
     // not mandatory, @GetMapping limits methods to GET request type calls, similarly @PostMapping limits calls to POST
 
-    @GetMapping
-    @RequestMapping({"", "/", "/index"})
+    @GetMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
         log.debug("Now in indexController.getIndexPage");
         //retrieve Set<Recipe> with getRecipes() and send to index.html
