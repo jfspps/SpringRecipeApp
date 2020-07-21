@@ -22,7 +22,7 @@ public class indexController {
     @GetMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
         log.debug("Now in indexController.getIndexPage");
-        //retrieve Set<Recipe> with getRecipes() and send to index.html
+        //retrieve Set<Recipe> with getRecipes() and send to index.html, identified as recipes to thymeleaf
         model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
