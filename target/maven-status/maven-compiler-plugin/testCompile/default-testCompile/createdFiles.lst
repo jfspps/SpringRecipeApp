@@ -5,8 +5,10 @@ com/example/recipe/converters/RecipeToRecipeCommandTest.class
 com/example/recipe/services/RecipeServiceImplTest.class
 com/example/recipe/services/UnitOfMeasureServiceImplTest.class
 com/example/recipe/controllers/ingredientControllerTest.class
+com/example/recipe/services/ImageServiceImplTest.class
 com/example/recipe/controllers/recipeControllerTest.class
 com/example/recipe/services/RecipeServiceIT.class
+com/example/recipe/controllers/imageControllerTest.class
 com/example/recipe/converters/UnitOfMeasureToUnitOfMeasureCommandTest.class
 com/example/recipe/services/IngredientServiceImplTest.class
 com/example/recipe/controllers/indexControllerTest.class
